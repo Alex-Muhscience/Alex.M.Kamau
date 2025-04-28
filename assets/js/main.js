@@ -85,4 +85,27 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'YOUR_GA_TRACKING_ID');
 */
+// Animated scroll-to-top button
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = '↑';
+scrollToTopBtn.className = 'fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 flex items-center justify-center text-xl';
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
 
+document.body.appendChild(scrollToTopBtn);
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+    scrollToTopBtn.classList.add('opacity-100', 'visible');
+  } else {
+    scrollToTopBtn.classList.add('opacity-0', 'invisible');
+    scrollToTopBtn.classList.remove('opacity-100', 'visible');
+  }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
