@@ -11,7 +11,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -19,7 +22,32 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
+        
+        /* Gradient Elements */
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+        .section-divider {
+            height: 80px;
+            width: 100%;
+            background: linear-gradient(to bottom right, transparent 49%, #3B82F6 50%), linear-gradient(to top right, transparent 49%, #8b5cF6 50%);
+            background-size: 50% 100%;
+            background-repeat: no-repeat;
+            background-position: left, right;
+        }
+        .dark .section-divider {
+            background: linear-gradient(to bottom right, transparent 49%, #3b82f6 50%), linear-gradient(to top right, transparent 49%, #8b5cf6 50%);
+        }
+    
+        /* Timeline */
         .timeline-item:not(:last-child):after {
             content: '';
             position: absolute;
@@ -32,6 +60,8 @@
         .dark .timeline-item:not(:last-child):after {
             background: #374151;
         }
+    
+        /* Skills */
         .skill-badge {
             display: inline-block;
             background-color: #3B82F6;
@@ -41,9 +71,82 @@
             font-size: 0.875rem;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .dark .skill-badge {
-            background-color: #1D4ED8;
+            background-color: #3b82f6;
+        }
+    
+        /* Cards */
+        .card-hover, .contact-card {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover, .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .dark .card-hover:hover, .dark .contact-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Navigation */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after, .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after, .nav-link:hover::after {
+            width: 100%;
+        }
+        .active-nav:after, .nav-link.active::after {
+            width: 100%;
+        }
+    
+        /* Animations */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+    
+        /* Form Elements */
+        .input-error {
+            border-color: #ef4444;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    
+        /* Social Icons */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -53,14 +156,14 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="index.html" class="text-xl font-bold text-blue-600 dark:text-blue-400">Alex M. Kamau</a>
+                    <a href="index.html" class="text-xl font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300">Alex M. Kamau</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-                    <a href="about.html" class="text-blue-600 dark:text-blue-400 font-medium">About</a>
-                    <a href="portfolio.html" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
-                    <a href="contact.html" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-                    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <a href="index.html" class="nav-link text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                    <a href="about.html" class="nav-link active-nav text-blue-600 dark:text-blue-400 font-medium">About</a>
+                    <a href="portfolio.html" class="nav-link text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
+                    <a href="contact.html" class="nav-link text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
@@ -71,7 +174,7 @@
                     </button>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" type="button" aria-label="Open main menu" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <button id="mobile-menu-button" type="button" aria-label="Open main menu" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -82,13 +185,13 @@
         </div>
         
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg transition-all duration-300 ease-out">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Home</a>
                 <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">About</a>
-                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
-                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-                <button id="mobile-theme-toggle" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
+                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Contact</a>
+                <button id="mobile-theme-toggle" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
                     Toggle Dark Mode
                 </button>
             </div>
@@ -96,29 +199,30 @@
     </nav>
 
     <!-- About Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 animate__animated animate__fadeIn">
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">About Me</h1>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
                 <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Computer Scientist | Software Developer | Cybersecurity Specialist</p>
             </div>
             
             <div class="flex flex-col md:flex-row items-center justify-between gap-12">
                 <div class="md:w-1/2">
                     <div class="relative">
-                        <div class="w-full h-96 md:h-auto rounded-2xl overflow-hidden shadow-xl">
+                        <div class="w-full h-96 md:h-auto rounded-2xl overflow-hidden shadow-xl floating">
                             <img src="assets/images/Profile Pic.jpg" 
                                  alt="Alex M. Kamau working" 
-                                 class="w-full h-full object-cover"
+                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                                  loading="lazy">
                         </div>
-                        <div class="absolute -bottom-5 -left-5 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg">
+                        <div class="absolute -bottom-5 -left-5 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg animate__animated animate__pulse animate__infinite animate__slower">
                             <span class="font-bold">Innovator</span> & Problem Solver
                         </div>
                     </div>
                 </div>
                 
-                <div class="md:w-1/2">
+                <div class="md:w-1/2 fade-in">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">Who Am I?</h2>
                     <div class="prose dark:prose-invert max-w-none">
                         <p class="mb-4">I'm a dedicated Computer Scientist and Software Developer with a strong foundation in full-stack development, AI-driven cybersecurity, and blockchain technology. Recognized in Mozilla's Responsible Computing Challenge (Top 5, 2025) for ethical AI innovation.</p>
@@ -126,17 +230,17 @@
                         <p class="mb-6">Beyond coding, I'm passionate about cybersecurity research, contributing to open-source projects, and mentoring aspiring developers in emerging technologies.</p>
                         
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="skill-badge">Computer Science</span>
-                            <span class="skill-badge">Cybersecurity</span>
-                            <span class="skill-badge">AI/ML</span>
-                            <span class="skill-badge">Blockchain</span>
-                            <span class="skill-badge">Full-Stack Dev</span>
-                            <span class="skill-badge">Ethical Hacking</span>
+                            <span class="skill-badge animate__animated animate__fadeInUp" style="animation-delay: 0.1s">Computer Science</span>
+                            <span class="skill-badge animate__animated animate__fadeInUp" style="animation-delay: 0.2s">Cybersecurity</span>
+                            <span class="skill-badge animate__animated animate__fadeInUp" style="animation-delay: 0.3s">AI/ML</span>
+                            <span class="skill-badge animate__animated animate__fadeInUp" style="animation-delay: 0.4s">Blockchain</span>
+                            <span class="skill-badge animate__animated animate__fadeInUp" style="animation-delay: 0.5s">Full-Stack Dev</span>
+                            <span class="skill-badge animate__animated animate__fadeInUp" style="animation-delay: 0.6s">Ethical Hacking</span>
                         </div>
                         
                         <div class="flex flex-wrap gap-4">
-                            <a href="#experience" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">My Experience</a>
-                            <a href="assets/documents/ALEX_MURIMI_KAMAU_FlowCV_Resume.pdf" download class="border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 px-6 py-3 rounded-lg font-medium transition duration-300">Download Resume</a>
+                            <a href="#experience" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">My Experience</a>
+                            <a href="assets\documents\ALEX MURIMI KAMAU CV.pdf" download class="border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Download Resume</a>
                         </div>
                     </div>
                 </div>
@@ -147,43 +251,46 @@
     <!-- Bio Section -->
     <section class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">My Journey</h2>
                 <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
             
             <div class="prose dark:prose-invert max-w-none">
-                <p class="mb-4">My fascination with technology began with dismantling electronics to understand their inner workings. This curiosity evolved into a passion for programming and cybersecurity during my high school years, leading me to pursue Computer Science at Kisii University.</p>
+                <p class="mb-4 fade-in">My fascination with technology began with dismantling electronics to understand their inner workings. This curiosity evolved into a passion for programming and cybersecurity during my high school years, leading me to pursue Computer Science at Kisii University.</p>
                 
-                <p class="mb-4">At university, I immersed myself in Data Structures, Algorithms, Network Programming, and AI, while actively participating in tech competitions. My project on Ethical AI earned recognition in Mozilla's Responsible Computing Challenge, reinforcing my commitment to developing technology responsibly.</p>
+                <p class="mb-4 fade-in">At university, I immersed myself in Data Structures, Algorithms, Network Programming, and AI, while actively participating in tech competitions. My project on Ethical AI earned recognition in Mozilla's Responsible Computing Challenge, reinforcing my commitment to developing technology responsibly.</p>
                 
-                <p class="mb-4">Professional experiences at Secunets Technologies Ltd and Gicatech Enterprise Solutions honed my skills in cybersecurity, network infrastructure, and software development. I've contributed to significant projects like the Sintel GSMA_SAS_UP Security Audit and developed practical solutions like the KeyGen Password Manager.</p>
+                <p class="mb-4 fade-in">Professional experiences at Secunets Technologies Ltd and Gicatech Enterprise Solutions honed my skills in cybersecurity, network infrastructure, and software development. I've contributed to significant projects like the Sintel GSMA_SAS_UP Security Audit and developed practical solutions like the KeyGen Password Manager.</p>
                 
-                <p class="mb-4">What excites me most about technology is its potential to solve complex problems while maintaining ethical standards. My work on the Unified Threat Detection and Response System (UTDRS) combines AI with cybersecurity to protect SMEs, demonstrating this philosophy in action.</p>
+                <p class="mb-4 fade-in">What excites me most about technology is its potential to solve complex problems while maintaining ethical standards. My work on the Unified Threat Detection and Response System (UTDRS) combines AI with cybersecurity to protect SMEs, demonstrating this philosophy in action.</p>
                 
-                <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl my-8 border-l-4 border-blue-600">
+                <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl my-8 border-l-4 border-blue-600 card-hover fade-in">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Innovator's Mindset</h3>
                     <p class="text-gray-700 dark:text-gray-300">I believe the best solutions come from interdisciplinary thinking. My projects often blend cybersecurity, AI, and blockchain to create novel approaches to digital challenges.</p>
                 </div>
                 
-                <p>Beyond technical work, I'm committed to knowledge sharing through open-source contributions and tech community engagement. I'm particularly interested in making cybersecurity accessible to African SMEs and exploring decentralized solutions for data privacy.</p>
+                <p class="fade-in">Beyond technical work, I'm committed to knowledge sharing through open-source contributions and tech community engagement. I'm particularly interested in making cybersecurity accessible to African SMEs and exploring decentralized solutions for data privacy.</p>
             </div>
         </div>
     </section>
 
+    <!-- Animated Divider -->
+    <div class="section-divider"></div>
+
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="experience" class="py-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Experience & Education</h2>
                 <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
             
             <div class="space-y-8">
                 <!-- Experience 1 -->
-                <div class="timeline-item relative pl-8">
+                <div class="timeline-item relative pl-8 fade-in">
                     <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-800 z-10"></div>
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md card-hover">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Network Technician</h3>
                             <span class="text-blue-600 dark:text-blue-400 font-medium">08/2024 – 02/2025</span>
@@ -198,16 +305,16 @@
                 </div>
                 
                 <!-- Experience 2 -->
-                <div class="timeline-item relative pl-8">
+                <div class="timeline-item relative pl-8 fade-in">
                     <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-800 z-10"></div>
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md card-hover">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Computer Science Attaché</h3>
                             <span class="text-blue-600 dark:text-blue-400 font-medium">05/2024 – 08/2024</span>
                         </div>
                         <h4 class="text-lg text-gray-700 dark:text-gray-300 mb-4">Secunets Technologies Ltd, Kikuyu, Kenya</h4>
                         <ul class="list-disc pl-5 text-gray-600 dark:text-gray-400 space-y-2">
-                            <li>Played a pivotal role in the National Research Fund Kenya Hackathon 2024</li>
+                            <li>Played a pivotal role in the Technical Support team at the National Research Fund Kenya Hackathon 2024, offering technical support that ensured the event’s resounding success.</li>
                             <li>Designed and developed a prototype Password Manager Application</li>
                             <li>Executed comprehensive vulnerability assessments and enforced security protocols</li>
                             <li>Contributed to the Sintel GSMA_SAS_UP Security Audit</li>
@@ -216,9 +323,9 @@
                 </div>
                 
                 <!-- Education 1 -->
-                <div class="timeline-item relative pl-8">
+                <div class="timeline-item relative pl-8 fade-in">
                     <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-800 z-10"></div>
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md card-hover">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">BSc in Computer Science</h3>
                             <span class="text-blue-600 dark:text-blue-400 font-medium">2021 - 2025 (Expected)</span>
@@ -239,14 +346,14 @@
     <!-- Skills Section -->
     <section class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Technical Expertise</h2>
                 <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Programming Languages -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl card-hover fade-in">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path>
@@ -266,7 +373,7 @@
                 </div>
                 
                 <!-- Frameworks & Tools -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl card-hover fade-in" style="animation-delay: 0.1s">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -286,7 +393,7 @@
                 </div>
                 
                 <!-- Cybersecurity -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl card-hover fade-in" style="animation-delay: 0.2s">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
@@ -305,7 +412,7 @@
                 </div>
                 
                 <!-- Database & DevOps -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl card-hover fade-in" style="animation-delay: 0.3s">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
@@ -330,14 +437,14 @@
     <!-- Projects Section -->
     <section class="py-20 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
                 <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
             
             <div class="space-y-8">
                 <!-- Project 1 -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md">
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md card-hover fade-in">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Unified Threat Detection and Response System (UTDRS)</h3>
                         <span class="text-blue-600 dark:text-blue-400 font-medium">Ongoing</span>
@@ -360,11 +467,11 @@
                         <span class="skill-badge">TensorFlow</span>
                         <span class="skill-badge">AWS</span>
                     </div>
-                    <a href="https://github.com/Alex-Muhscience/UTDRS-Capstone-Project.git" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">View on GitHub →</a>
+                    <a href="https://github.com/Alex-Muhscience/UTDRS-Capstone-Project.git" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-300">View on GitHub →</a>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md">
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md card-hover fade-in" style="animation-delay: 0.1s">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">KeyGen – Password Generator & Vault</h3>
                         <span class="text-blue-600 dark:text-blue-400 font-medium">06/2024</span>
@@ -385,11 +492,11 @@
                         <span class="skill-badge">SQLite</span>
                         <span class="skill-badge">AES Encryption</span>
                     </div>
-                    <a href="https://github.com/Alex-Muhscience/Pass-KeyGen" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">View on GitHub →</a>
+                    <a href="https://github.com/Alex-Muhscience/Pass-KeyGen" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-300">View on GitHub →</a>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md">
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md card-hover fade-in" style="animation-delay: 0.2s">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Healthcare Data Platform</h3>
                         <span class="text-blue-600 dark:text-blue-400 font-medium">Ongoing</span>
@@ -410,11 +517,11 @@
                         <span class="skill-badge">PostgreSQL</span>
                         <span class="skill-badge">JWT</span>
                     </div>
-                    <a href="https://github.com/Alex-Muhscience/Health-Info-App" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">View on GitHub →</a>
+                    <a href="https://github.com/Alex-Muhscience/Health-Info-App" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-300">View on GitHub →</a>
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md">
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md card-hover fade-in" style="animation-delay: 0.3s">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Secure File Sharing Platform</h3>
                         <span class="text-blue-600 dark:text-blue-400 font-medium">Ongoing</span>
@@ -436,7 +543,7 @@
                         <span class="skill-badge">AWS</span>
                         <span class="skill-badge">IPFS</span>
                     </div>
-                    <a href="https://github.com/Alex-Muhscience/Secure-File-Sharing-App" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">View on GitHub →</a>
+                    <a href="https://github.com/Alex-Muhscience/Secure-File-Sharing-App" target="_blank" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-300">View on GitHub →</a>
                 </div>
             </div>
         </div>
@@ -445,35 +552,35 @@
     <!-- Achievements Section -->
     <section class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Achievements & Recognition</h2>
                 <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Achievement 1 -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600 card-hover fade-in">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Mozilla Responsible Computing Challenge</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-2">2023 – 04/2025 | Kisii University, Kenya</p>
                     <p>Ranked Top 5 for Unified Threat Detection and Response System, advancing ethical AI in cybersecurity.</p>
                 </div>
                 
                 <!-- Achievement 2 -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600 card-hover fade-in" style="animation-delay: 0.1s">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">National Research Fund Kenya Hackathon</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-2">07/2024 | Thika, Kenya</p>
                     <p>Played a pivotal role in the hackathon, offering technical support that ensured the event's success.</p>
                 </div>
                 
                 <!-- Achievement 3 -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600 card-hover fade-in" style="animation-delay: 0.2s">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Sintel GSMA_SAS-UP Security Audit</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-2">06/2024 | Nairobi, Kenya</p>
                     <p>Actively contributed to the security audit, showcasing in-depth expertise in cybersecurity.</p>
                 </div>
                 
                 <!-- Achievement 4 -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-blue-600 card-hover fade-in" style="animation-delay: 0.3s">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Blockchain Bootcamp</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-2">2024 | Kisii University, Kenya</p>
                     <p>Participated in a workshop on blockchain technology, exploring Web3 innovations using Internet Computer Protocol (ICP).</p>
@@ -483,11 +590,11 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-blue-600 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
             <h2 class="text-2xl md:text-3xl font-bold mb-6">Interested in Collaborating?</h2>
             <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">I'm always open to discussing new projects, research opportunities, or potential collaborations in cybersecurity and software development.</p>
-            <a href="contact.html" class="inline-block bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-bold text-lg transition duration-300">Get In Touch</a>
+            <a href="contact.html" class="inline-block bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-bold text-lg transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Get In Touch</a>
         </div>
     </section>
 
@@ -565,7 +672,7 @@
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p>&copy; 2025 Alex M. Kamau. All rights reserved.</p>
-                <a href="#" class="mt-4 md:mt-0 inline-flex items-center text-blue-400 hover:text-blue-300">
+                <a href="#" class="mt-4 md:mt-0 inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300">
                     Back to Top
                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
@@ -576,6 +683,98 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+
+        // Check for saved user preference or use media query
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        // Toggle button click handler
+        themeToggle.addEventListener('click', () => {
+            // Toggle icons
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+            
+            // Toggle theme
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Mobile theme toggle
+        mobileThemeToggle.addEventListener('click', () => {
+            // Toggle theme
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
