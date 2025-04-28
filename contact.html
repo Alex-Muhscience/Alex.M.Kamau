@@ -36,28 +36,33 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="index.html" class="text-xl font-bold text-blue-600 dark:text-blue-400">[Your Name]</a>
+                    <a href="index.html" class="text-xl font-bold text-blue-600 dark:text-blue-400">Alex M. Kamau</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Home</a>
                     <a href="about.html" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">About</a>
                     <a href="portfolio.html" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
                     <a href="contact.html" class="text-blue-600 dark:text-blue-400 font-medium">Contact</a>
-                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                        </svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
+                    
+<!-- Replace the existing theme toggle button with this: -->
+<button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+    </svg>
+    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+    </svg>
+    <span class="sr-only">Toggle dark mode</span>
+</button>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                    <!-- Replace the existing mobile menu button with this: -->
+<button id="mobile-menu-button" type="button" aria-label="Open main menu" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+    <span class="sr-only">Open main menu</span>
+</button>
                 </div>
             </div>
         </div>
@@ -144,7 +149,7 @@
                             </div>
                             <div class="ml-4">
                                 <h3 class="text-lg font-medium text-gray-900 dark:text-white">Email</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-1">your.email@example.com</p>
+                                <p class="text-gray-600 dark:text-gray-400 mt-1">info.ak.computerscience@gmail.com</p>
                             </div>
                         </div>
                         
@@ -156,7 +161,7 @@
                             </div>
                             <div class="ml-4">
                                 <h3 class="text-lg font-medium text-gray-900 dark:text-white">Phone</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-1">+1 (555) 123-4567</p>
+                                <p class="text-gray-600 dark:text-gray-400 mt-1">+254 746254055</p>
                             </div>
                         </div>
                         
@@ -169,7 +174,7 @@
                             </div>
                             <div class="ml-4">
                                 <h3 class="text-lg font-medium text-gray-900 dark:text-white">Location</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-1">San Francisco, CA</p>
+                                <p class="text-gray-600 dark:text-gray-400 mt-1">Nairobi, Kenya</p>
                             </div>
                         </div>
                         
@@ -222,7 +227,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">
-                    <h3 class="text-xl font-bold text-white mb-4">[Your Name]</h3>
+                    <h3 class="text-xl font-bold text-white mb-4">Alex M. Kamau</h3>
                     <p class="mb-4">Full-stack developer passionate about creating beautiful, functional web experiences.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition duration-300">
@@ -298,6 +303,37 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+        // Lazy load iframes
+        const iframeContainers = document.querySelectorAll('.iframe-container');
+        
+        iframeContainers.forEach(container => {
+            const iframe = container.querySelector('iframe');
+            const placeholder = container.querySelector('.iframe-placeholder');
+            const loadButton = container.querySelector('.load-iframe');
+            
+            // Load iframe when button is clicked
+            loadButton.addEventListener('click', function() {
+                iframe.src = iframe.dataset.src;
+                container.classList.add('loaded');
+            });
+            
+            // Optional: Load iframe when it's near the viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        iframe.src = iframe.dataset.src;
+                        container.classList.add('loaded');
+                        observer.unobserve(container);
+                    }
+                });
+            }, {
+                rootMargin: '200px' // Load when 200px away from viewport
+            });
+            
+            observer.observe(container);
+        });
+    });</script>
     <script>
         // Contact form validation
         document.addEventListener('DOMContentLoaded', function() {
