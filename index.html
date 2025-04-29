@@ -30,20 +30,17 @@
         }
         
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, #3b82f6, #efedf1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
         .gradient-bg {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
         }
-        
         .hero-gradient {
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
-        
         .section-title {
             position: relative;
             display: inline-block;
@@ -142,7 +139,7 @@
         
         .skill-badge {
             display: inline-block;
-            background-color: #3B82F6;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: white;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
@@ -162,14 +159,12 @@
         }
         
         .card-hover {
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
         .dark .card-hover:hover {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
@@ -230,7 +225,7 @@
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 shadow-sm border-b border-gray-200 dark:border-gray-800">
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 shadow-sm border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
@@ -298,10 +293,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 animate__animated animate__fadeIn animate__delay-1s">
-                    <a href="#projects" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg">
+                    <a href="#projects" class="gradient-bg hover:opacity-90 text-white px-8 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg">
                         View My Work
                     </a>
-                    <a href="contact.html" class="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg">
+                    <a href="contact.html" class="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg">
                         Contact Me
                     </a>
                 </div>
@@ -316,7 +311,7 @@
     </section>
 
     <!-- Projects Showcase Section -->
-    <section id="projects" class="py-28 bg-white dark:bg-gray-900">
+    <section id="projects" class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 scroll-fade">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 section-title inline-block">
@@ -822,67 +817,66 @@ offering technical support that ensured the event's resounding success.
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="md:col-span-2">
                     <h3 class="text-2xl font-bold gradient-text mb-6">Alex M. Kamau</h3>
-                    <p class="mb-6 text-lg">Systems Developer | Cybersecurity Enthusiast | Innovating with Technology</p>
+                    <p class="mb-6">Innovative solutions at the intersection of cybersecurity, AI, and blockchain technology.</p>
                     <div class="flex space-x-6">
-                        <a href="https://github.com/Alex-Muhscience" target="_blank" class="social-icon text-gray-400 hover:text-white text-xl">
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/alex-kamau-20015b340" target="_blank" class="social-icon text-gray-400 hover:text-white text-xl">
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
                             <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="mailto:alexkamau712@gmail.com" class="social-icon text-gray-400 hover:text-white text-xl">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="tel:+254746254055" class="social-icon text-gray-400 hover:text-white text-xl">
-                            <i class="fas fa-phone-alt"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-6">Navigation</h4>
+                    <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html" class="hover:text-white transition duration-300 text-lg">Home</a></li>
-                        <li><a href="about.html" class="hover:text-white transition duration-300 text-lg">About</a></li>
-                        <li><a href="portfolio.html" class="hover:text-white transition duration-300 text-lg">Portfolio</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition duration-300 text-lg">Contact</a></li>
+                        <li><a href="index.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> About</a></li>
+                        <li><a href="portfolio.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Portfolio</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Contact</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
-                    <ul class="space-y-4">
+                    <h4 class="text-lg font-semibold text-white mb-6">Contact Info</h4>
+                    <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-envelope text-blue-400 mt-1 mr-3"></i>
-                            <span class="text-lg">alexkamau712@gmail.com</span>
+                            <span>info.ak.computerscience@gmail.com</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-phone-alt text-blue-400 mt-1 mr-3"></i>
-                            <span class="text-lg">+254 746254055</span>
+                            <span>+254 746254055</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
-                            <span class="text-lg">Nairobi, Kenya</span>
+                            <span>Nairobi, Kenya</span>
                         </li>
                     </ul>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-6">Motto</h4>
-                    <p class="text-xl italic">"Building a secure and innovative digital future, one solution at a time."</p>
-                </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-lg">&copy; 2025 Alex M. Kamau. All rights reserved.</p>
-                <a href="#" class="mt-4 md:mt-0 inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300 text-lg">
-                    Back to Top
-                    <i class="fas fa-arrow-up ml-2"></i>
-                </a>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2025 Alex M. Kamau. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                        Privacy Policy
+                    </a>
+                    <span class="mx-2">•</span>
+                    <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                        Terms of Service
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
-
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 hidden">
         <i class="fas fa-arrow-up"></i>

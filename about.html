@@ -27,7 +27,7 @@
         
         /* Gradient Elements */
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, #3b82f6, #efedf1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -64,7 +64,7 @@
         /* Skills */
         .skill-badge {
             display: inline-block;
-            background-color: #3B82F6;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: white;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
@@ -82,14 +82,14 @@
         }
     
         /* Cards */
-        .card-hover, .contact-card {
-            transition: all 0.3s ease;
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .card-hover:hover, .contact-card:hover {
+        .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        .dark .card-hover:hover, .dark .contact-card:hover {
+        .dark .card-hover:hover {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
     
@@ -152,7 +152,7 @@
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 shadow-sm">
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 shadow-sm border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -199,7 +199,8 @@
     </nav>
 
     <!-- About Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 gradient-bg text-white">
+        
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12 animate__animated animate__fadeIn">
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">About Me</h1>
@@ -239,8 +240,8 @@
                         </div>
                         
                         <div class="flex flex-wrap gap-4">
-                            <a href="#experience" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">My Experience</a>
-                            <a href="assets\documents\ALEX MURIMI KAMAU CV.pdf" download class="border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Download Resume</a>
+                            <a href="#experience" class="gradient-bg hover:opacity-90 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg">My Experience</a>
+<a href="assets\documents\ALEX MURIMI KAMAU CV.pdf" download class="border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Download Resume</a>
                         </div>
                     </div>
                 </div>
@@ -279,7 +280,7 @@
     <div class="section-divider"></div>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Experience & Education</h2>
@@ -590,7 +591,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+    <section class="py-16 gradient-bg text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
             <h2 class="text-2xl md:text-3xl font-bold mb-6">Interested in Collaborating?</h2>
             <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">I'm always open to discussing new projects, research opportunities, or potential collaborations in cybersecurity and software development.</p>
@@ -599,85 +600,68 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="md:col-span-2">
-                    <h3 class="text-xl font-bold text-white mb-4">Alex M. Kamau</h3>
-                    <p class="mb-4">Computer Scientist | Software Developer | Cybersecurity Specialist | Innovating with Technology</p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/Alex-Muhscience" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-                            </svg>
+                    <h3 class="text-2xl font-bold gradient-text mb-6">Alex M. Kamau</h3>
+                    <p class="mb-6">Innovative solutions at the intersection of cybersecurity, AI, and blockchain technology.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/alex-kamau-20015b340" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
-                            </svg>
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="mailto:alexkamau712@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="tel:+254746254055" class="text-gray-400 hover:text-white transition duration-300">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
+                        <a href="#" class="social-icon text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Navigation</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="about.html" class="hover:text-white transition duration-300">About</a></li>
-                        <li><a href="portfolio.html" class="hover:text-white transition duration-300">Portfolio</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition duration-300">Contact</a></li>
+                    <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> About</a></li>
+                        <li><a href="portfolio.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Portfolio</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Contact</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
-                    <ul class="space-y-2">
+                    <h4 class="text-lg font-semibold text-white mb-6">Contact Info</h4>
+                    <ul class="space-y-3">
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span>alexkamau712@gmail.com</span>
+                            <i class="fas fa-envelope text-blue-400 mt-1 mr-3"></i>
+                            <span>info.ak.computerscience@gmail.com</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
+                            <i class="fas fa-phone-alt text-blue-400 mt-1 mr-3"></i>
                             <span>+254 746254055</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
                             <span>Nairobi, Kenya</span>
                         </li>
                     </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Motto</h4>
-                    <p class="italic">"Building a secure and innovative digital future, one solution at a time."</p>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p>&copy; 2025 Alex M. Kamau. All rights reserved.</p>
-                <a href="#" class="mt-4 md:mt-0 inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300">
-                    Back to Top
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                    </svg>
-                </a>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                        Privacy Policy
+                    </a>
+                    <span class="mx-2">•</span>
+                    <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                        Terms of Service
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
